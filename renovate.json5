@@ -4,11 +4,6 @@
     "extends": [ "config:recommended" ],
     "ignorePresets": [ ":ignoreModulesAndTests" ],
 
-    // Do not update the build project.
-    // NUKE sometimes change API break without major version.
-    // Let's update manually.
-    "ignorePaths": [ "Build/**" ],
-    
     // Do not automatically update because that's breaking
     "ignoreDeps": [ "Newtonsoft.Json", "AwesomeAssertions" ],
     "packageRules": [
@@ -18,10 +13,12 @@
             "schedule": [ "* * 1 * *" ]
         },
 
-        // Disable updates for pinned packages.
+        // Disable updates for pinned packages for Src and Tests.
+        // The Build project must have some pinned versions because dotnet allows only exact versions with PackageDownload
         // https://github.com/renovatebot/renovate/blob/main/lib/modules/manager/nuget/readme.md#disabling-updates-for-pinned-versions
         {
-            "matchManagers": [ "nuget" ],
+            "matchManagers": ["nuget"],
+            "matchFileNames": ["Src/**", "Tests/**"],
             "matchCurrentValue": "/^\\[[^,]+\\]$/",
             "enabled": false
         }

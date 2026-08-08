@@ -57,7 +57,7 @@ namespace AwesomeAssertions.Json
             JToken parsedExpected;
             try
             {
-                parsedExpected = JToken.Parse(expected);
+                parsedExpected = JsonAssertionConfiguration.ParseFunction(expected);
             }
             catch (Exception ex)
             {
@@ -153,7 +153,7 @@ namespace AwesomeAssertions.Json
             JToken parsedUnexpected;
             try
             {
-                parsedUnexpected = JToken.Parse(unexpected);
+                parsedUnexpected = JsonAssertionConfiguration.ParseFunction(unexpected);
             }
             catch (Exception ex)
             {
@@ -451,7 +451,7 @@ namespace AwesomeAssertions.Json
             JToken subtreeToken;
             try
             {
-                subtreeToken = JToken.Parse(subtree);
+                subtreeToken = JsonAssertionConfiguration.ParseFunction(subtree);
             }
             catch (Exception ex)
             {

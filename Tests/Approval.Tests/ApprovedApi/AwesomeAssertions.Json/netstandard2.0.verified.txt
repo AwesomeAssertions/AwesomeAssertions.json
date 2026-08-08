@@ -40,6 +40,10 @@ namespace AwesomeAssertions.Json
         public bool CanHandle(object value) { }
         public void Format(object value, AwesomeAssertions.Formatting.FormattedObjectGraph formattedGraph, AwesomeAssertions.Formatting.FormattingContext context, AwesomeAssertions.Formatting.FormatChild formatChild) { }
     }
+    public static class JsonAssertionConfiguration
+    {
+        public static System.Func<string, Newtonsoft.Json.Linq.JToken> ParseFunction { get; set; }
+    }
     public static class JsonAssertionExtensions
     {
         public static AwesomeAssertions.Json.JTokenAssertions Should(this Newtonsoft.Json.Linq.JObject jObject) { }

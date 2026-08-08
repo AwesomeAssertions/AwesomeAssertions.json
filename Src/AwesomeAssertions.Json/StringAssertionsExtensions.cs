@@ -17,7 +17,7 @@ namespace AwesomeAssertions.Json
 
             try
             {
-                json = JToken.Parse(stringAssertions.Subject);
+                json = JsonAssertionConfiguration.ParseFunction(stringAssertions.Subject);
             }
 #pragma warning disable CA1031 // Ignore catching general exception
             catch (Exception ex)
